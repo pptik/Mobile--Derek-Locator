@@ -4,7 +4,7 @@ var users = require('../models/users.js');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+    res.send('respond with a resource');
 });
 
 /* Signup */
@@ -50,7 +50,6 @@ router.post('/login', function(req, res){
             console.log(dataRes);
             req.body = false;
             res.status(400).send(dataRes);
-            //res.redirect('?valid=error');
         }	else{
             if (req.body['remember-me'] == 'true'){
                 res.cookie('user', o.user, { maxAge: 900000 });
@@ -65,16 +64,8 @@ router.post('/login', function(req, res){
             console.log(dataRes);
             //    res.status(200).send(dataRes);
             console.log(dataRes);
-            /* add to session */
-            req.session.islogged = true;
-            req.session.username = o.user;
-            req.session.name = o.name;
-            req.session.email = o.email;
-            req.session.id = o._id;
-            req.session.isverified = o.isVerified;
             var random = Math.random().toString();
             res.status(400).send(dataRes);
-            // res.redirect('../dashboard?redirect='+md5(moment().format('MMMM Do YYYY, h:mm:ss a')+random));
         }
     });
 });

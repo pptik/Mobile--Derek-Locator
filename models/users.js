@@ -62,6 +62,24 @@ addNewAccount = function(newData, callback)
     });
 }
 
+/* Login */
+
+login = function(user, pass, callback)
+{
+    users.findOne({user:user}, function(e, o) {
+        if (o == null){
+            callback('Username atau password tidak cocok');
+        }	else{
+            validatePassword(pass, o.pass, function(err, res) {
+                if (res){
+                    callback(null, o);
+                }	else{
+                    callback('Username atau password tidak cocok');
+                }
+            });
+        }
+    });
+}
 
 /* salt */
 var validatePassword = function(plainPass, hashedPass, callback)
@@ -94,5 +112,6 @@ var saltAndHash = function(pass, callback)
 
 
 module.exports = {
-    addNewAccount: addNewAccount
+    addNewAccount: addNewAccount,
+    login: login
 };
