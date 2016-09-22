@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var users = require('../models/users.js');
+var report = require('../models/report');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -12,6 +13,7 @@ router.post('/signup', function(req, res){
     users.addNewAccount({
         name 	: req.body['name'],
         email 	: req.body['email'],
+        nomor_telepon : req.body['nomor_telepon'],
         user 	: req.body['user'],
         pass	: req.body['pass'],
         role    : req.body['role'],
@@ -70,6 +72,34 @@ router.post('/login', function(req, res){
     });
 });
 
+
+router.post('/postreport', function(req, res){
+    report.addReport({
+        user 	    : req.body['user'],
+        nomor_telepon : req.body['nomor_telepon'],
+        location    : req.body['location'],
+        latitude    : req.body['latitude'],
+        longitude   : req.body['longitude']
+    }, function(e, o){
+        var dataRes = {};
+        var status = {};
+        if (e){
+            status.code = 400;
+            status.success = false;
+            status.msg = e;
+            dataRes.status = status;
+            res.status(400).send(dataRes);
+        }	else{
+            status.code = 200;
+            status.success = true;
+            status.msg = 'Sukses membuat report';
+            dataRes.status = status;
+            dataRes.data = o.ops[0];
+            res.status(200).send(dataRes);
+
+        }
+    });
+});
 
 
 module.exports = router;

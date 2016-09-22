@@ -6,6 +6,8 @@ var crypto 		= require('crypto');
 var moment 		= require('moment');
 var configs     = require('./config');
 
+
+
 var users = configs.db.collection('users');
 
 /* insert akun */
