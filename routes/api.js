@@ -26,7 +26,7 @@ router.post('/signup', function(req, res){
             status.success = false;
             status.msg = e;
             dataRes.status = status;
-            res.status(400).send(dataRes);
+            res.status(200).send(dataRes);
         }	else{
             status.code = 200;
             status.success = true;
@@ -51,7 +51,7 @@ router.post('/login', function(req, res){
             dataRes.status = status;
             console.log(dataRes);
             req.body = false;
-            res.status(400).send(dataRes);
+            res.status(200).send(dataRes);
         }	else{
             if (req.body['remember-me'] == 'true'){
                 res.cookie('user', o.user, { maxAge: 900000 });
@@ -67,7 +67,7 @@ router.post('/login', function(req, res){
             //    res.status(200).send(dataRes);
             console.log(dataRes);
             var random = Math.random().toString();
-            res.status(400).send(dataRes);
+            res.status(200).send(dataRes);
         }
     });
 });
@@ -88,7 +88,7 @@ router.post('/postreport', function(req, res){
             status.success = false;
             status.msg = e;
             dataRes.status = status;
-            res.status(400).send(dataRes);
+            res.status(200).send(dataRes);
         }	else{
             status.code = 200;
             status.success = true;

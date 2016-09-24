@@ -9,7 +9,7 @@ var Server 		= require('mongodb').Server;
 
 /* Todo: ubah dengan db live*/
 var dbName = process.env.DB_NAME || 'semut_demo';
-var dbHost = process.env.DB_HOST || 'MacBookPro.local'
+var dbHost = process.env.DB_HOST || 'WIN-BJ6N64NDFVD'
 var dbPort = process.env.DB_PORT || 27017;
 
 var db = new MongoDB(dbName, new Server(dbHost, dbPort, {auto_reconnect: true}), {w: 1});
