@@ -9,6 +9,7 @@ router.get('/', function(req, res, next) {
 
 /* Signup */
 router.post('/signup', function(req, res){
+    
     users.addNewAccount({
         name 	: req.body['name'],
         email 	: req.body['email'],

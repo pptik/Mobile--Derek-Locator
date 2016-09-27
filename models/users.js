@@ -55,6 +55,17 @@ login = function(user, pass, callback)
     });
 }
 
+/* update */
+update = function(user, lat, lon, location, callback)
+{
+    users.updateOne({user:user},{ $set: { "latitude": lat, "longitude": lon, "location": location } },
+        function(e, o) {
+            console.log(o);
+            //callback();
+            callback(null, o);
+    });
+}
+
 /* salt */
 var validatePassword = function(plainPass, hashedPass, callback)
 {
@@ -87,5 +98,6 @@ var saltAndHash = function(pass, callback)
 
 module.exports = {
     addNewAccount: addNewAccount,
-    login: login
+    login: login,
+    update: update
 };

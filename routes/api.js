@@ -10,15 +10,29 @@ router.get('/', function(req, res, next) {
 
 /* Signup */
 router.post('/signup', function(req, res){
-    users.addNewAccount({
+    var param = {
         name 	: req.body['name'],
         email 	: req.body['email'],
         nomor_telepon : req.body['nomor_telepon'],
         user 	: req.body['user'],
         pass	: req.body['pass'],
         role    : req.body['role'],
-        id_unit : req.body['id_unit']
-    }, function(e, o){
+    };
+    if(req.body['role'] == '2'){
+        param = {
+            name 	: req.body['name'],
+            email 	: req.body['email'],
+            nomor_telepon : req.body['nomor_telepon'],
+            user 	: req.body['user'],
+            pass	: req.body['pass'],
+            role    : req.body['role'],
+            id_unit : req.body['id_unit'],
+            latitude: "0",
+            longitude: "0",
+            location: "none"
+        }
+    }
+    users.addNewAccount(param, function(e, o){
         var dataRes = {};
         var status = {};
         if (e){
@@ -95,6 +109,30 @@ router.post('/postreport', function(req, res){
             status.msg = 'Sukses membuat report';
             dataRes.status = status;
             dataRes.data = o.ops[0];
+            res.status(200).send(dataRes);
+
+        }
+    });
+});
+
+
+router.post('/updateuser', function(req, res){
+    users.update(req.body['user'], req.body['latitude'],req.body['longitude'], req.body['location']
+    , function(e, o){
+        var dataRes = {};
+        var status = {};
+        if (e){
+            status.code = 400;
+            status.success = false;
+            status.msg = e;
+            dataRes.status = status;
+            res.status(200).send(dataRes);
+        }	else{
+            status.code = 200;
+            status.success = true;
+            status.msg = 'updated';
+            dataRes.status = status;
+            dataRes.data = o;
             res.status(200).send(dataRes);
 
         }

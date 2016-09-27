@@ -16,6 +16,7 @@ addReport = function(newData, callback)
 
         }else{
             callback('Maaf, user tidak ditemukan');
+            console.log(e);
         }
     });
 }
