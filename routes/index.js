@@ -17,4 +17,9 @@ router.get('/map', function(req, res, next) {
     res.render('maps', { title: 'Express' });
 });
 
+/* GET dashboard. */
+router.get('/user', function(req, res, next) {
+    res.render('user', { title: 'Express' });
+});
+
 module.exports = router;

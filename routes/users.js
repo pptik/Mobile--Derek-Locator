@@ -38,6 +38,13 @@ router.post('/signup', function(req, res){
     });
 });
 
+/* Login get */
+
+/* GET home page. */
+router.get('/login', function(req, res, next) {
+    res.render('login', { title: 'Express' });
+});
+
 router.post('/login', function(req, res){
     users.login(req.body['user'], req.body['pass'], function(e, o){
         console.log(req.body['user'] +', '+req.body['pass']);
