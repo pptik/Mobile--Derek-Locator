@@ -98,9 +98,39 @@ router.post('/login', function(req, res){
 
 /* get driver */
 
+
+function getDriver(username, callback) {
+    users.getDriver(username, function(e, o){
+        var dataRes = {};
+        var status = {};
+        if (!o){
+            status.code = 400;
+            status.success = false;
+            status.msg = e;
+            dataRes.status = status;
+            console.log(dataRes);
+            req.body = false;
+            callback(dataRes);
+         //   res.status(200).send(dataRes);
+        }	else{
+            status.code = 200;
+            status.success = true;
+            status.msg = 'Data ditemukan';
+            dataRes.status = status;
+            dataRes.data = o;
+            console.log(dataRes);
+            callback(dataRes);
+        //    res.status(200).send(dataRes);
+
+        }
+    });
+}
+
+
+
+
 router.post('/getdriver', function(req, res){
     users.getDriver(req.body['user'], function(e, o){
-        console.log(req.body['user']);
         var dataRes = {};
         var status = {};
         if (!o){
