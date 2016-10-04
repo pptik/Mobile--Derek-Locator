@@ -32,64 +32,98 @@
 </head>
 <body>
     <div class="main-panel">
+        <div class="content">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">Edit Profile</h4>
+                            </div>
+                            <div class="content">
+                                <form>
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label>Company (disabled)</label>
+                                                <input type="text" class="form-control" disabled placeholder="Company" value="Creative Code Inc.">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Username</label>
+                                                <input type="text" class="form-control" placeholder="Username" value="michael23">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Email address</label>
+                                                <input type="email" class="form-control" placeholder="Email">
+                                            </div>
+                                        </div>
+                                    </div>
 
-            <div class="container">
-                <form class="form-login" action="/account/login" method="post">
-                    <h2 class="form-login-heading">sign in now</h2>
-                    <div class="login-wrap">
-                        <input type="text" class="form-control" name="user" placeholder="Username" autofocus>
-                        <br>
-                        <input type="password" class="form-control" placeholder="Password" name="pass">
-                        <br>
-                        <input type="checkbox" name="remember-me" value="true">
-                        <label>Remember me</label>
-                        <label class="checkbox">
-		                <span class="pull-right">
-		                    <a data-toggle="modal" href="login.html#myModal"> Forgot Password?</a>
-		                </span>
-                        </label>
-                        <button class="btn btn-theme btn-block" href="index.html" type="submit"><i class="fa fa-lock"></i> SIGN IN</button>
-                        <hr>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>First Name</label>
+                                                <input type="text" class="form-control" placeholder="Company" value="Mike">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Last Name</label>
+                                                <input type="text" class="form-control" placeholder="Last Name" value="Andrew">
+                                            </div>
+                                        </div>
+                                    </div>
 
-                        <div class="login-social-link centered">
-                            <p>or you can sign in via your social network</p>
-                            <button class="btn btn-facebook" type="submit"><i class="fa fa-facebook"></i> Facebook</button>
-                            <button class="btn btn-twitter" type="submit"><i class="fa fa-twitter"></i> Twitter</button>
-                        </div>
-                        <div class="registration">
-                            Don't have an account yet?<br/>
-                            <a class="" href="#">
-                                Create an account
-                            </a>
-                        </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Address</label>
+                                                <input type="text" class="form-control" placeholder="Home Address" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09">
+                                            </div>
+                                        </div>
+                                    </div>
 
-                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>City</label>
+                                                <input type="text" class="form-control" placeholder="City" value="Mike">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Country</label>
+                                                <input type="text" class="form-control" placeholder="Country" value="Andrew">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Postal Code</label>
+                                                <input type="number" class="form-control" placeholder="ZIP Code">
+                                            </div>
+                                        </div>
+                                    </div>
 
-                    <!-- Modal -->
-                    <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                    <h4 class="modal-title">Forgot Password ?</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <p>Enter your e-mail address below to reset your password.</p>
-                                    <input type="text" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>About Me</label>
+                                                <textarea rows="5" class="form-control" placeholder="Here can be your description" value="Mike">Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</textarea>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                                </div>
-                                <div class="modal-footer">
-                                    <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
-                                    <button class="btn btn-theme" type="button">Submit</button>
-                                </div>
+                                    <button type="submit" class="btn btn-info btn-fill pull-right">Update Profile</button>
+                                    <div class="clearfix"></div>
+                                </form>
                             </div>
                         </div>
                     </div>
-                    <!-- modal -->
-
-                </form>
-
+                </div>
             </div>
+        </div>
     </div>
 </body>
 
