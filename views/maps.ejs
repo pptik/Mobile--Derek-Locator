@@ -50,7 +50,7 @@
                 <li>
                     <a href="/dashboard">
                         <i class="pe-7s-graph"></i>
-                        <p>Dashboard</p>
+                        <p><%= JSON.stringify(data.status.msg) %></p>
                     </a>
                 </li>
                 <li class="active">
@@ -158,12 +158,23 @@
     <!--  Google Maps Plugin    -->
     <script src="https://maps.googleapis.com/maps/api/js?v=3&amp;sensor=false&amp;key=AIzaSyBu5nZKbeK-WHQ70oqOWo-_4VmwOwKP9YQ"></script>
     <script src="/javascripts/custom.js"></script>
+    <script>
+        var data = '<%= data.data %>';
+        for(var i; i < data.length; i++){
+
+        }
+        $().ready(function(){
+            map.initMap(data);
+            map.startMap();
+        });
+    </script>
 
     <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
 	<script src="/assets/js/light-bootstrap-dashboard.js"></script>
 
 	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 	<script src="/assets/js/demo.js"></script>
+
 
 
 </html>
