@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
 
 /* GET dashboard. */
 router.get('/dashboard', function(req, res, next) {
-  res.render('dashboard', { title: 'Express' });
+  res.render('dashboard-v1', { title: 'Express' });
 });
 
 module.exports = router;
