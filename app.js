@@ -25,16 +25,18 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+var session = require('express-session');
+app.use(session({
+  secret: '323ewdscsdfwrfhbw42rdfsdfwe',
+  resave: false,
+  saveUninitialized: true
+}));
+
+
 app.use('/', routes);
 app.use('/users', users);
 app.use('/api', api);
 
-// session untuk web
-app.use(session({
-    secret: '323ewdscsdfwrfhbw42rdfsdfwe',
-    resave: false,
-    saveUninitialized: true
-}))
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

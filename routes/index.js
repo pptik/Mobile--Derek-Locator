@@ -9,7 +9,13 @@ router.get('/', function(req, res, next) {
 
 /* GET dashboard. */
 router.get('/dashboard', function(req, res, next) {
-  res.render('dashboard-v1', { title: 'Express' });
+    var islogged = req.session.islogged;
+    console.log(islogged);
+    if(islogged == null){
+        res.redirect('/users/login');
+    }else {
+        res.render('dashboard-v1', {title: 'Express'});
+    }
 });
 
 /* GET dashboard. */
