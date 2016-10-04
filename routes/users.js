@@ -42,7 +42,12 @@ router.post('/signup', function(req, res){
 
 /* GET home page. */
 router.get('/login', function(req, res, next) {
-    res.render('login', { title: 'Express' });
+    var islogged = req.session.islogged;
+    if(islogged == null){
+        res.render('login', {title: 'Express'});
+    }else {
+        res.redirect('/dashboard');
+    }
 });
 
 router.post('/login', function(req, res){

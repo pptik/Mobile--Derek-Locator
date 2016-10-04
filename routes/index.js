@@ -10,7 +10,6 @@ router.get('/', function(req, res, next) {
 /* GET dashboard. */
 router.get('/dashboard', function(req, res, next) {
     var islogged = req.session.islogged;
-    console.log(islogged);
     if(islogged == null){
         res.redirect('/users/login');
     }else {
@@ -20,7 +19,12 @@ router.get('/dashboard', function(req, res, next) {
 
 /* GET dashboard. */
 router.get('/map', function(req, res, next) {
-    res.render('maps', { title: 'Express' });
+    var islogged = req.session.islogged;
+    if(islogged == null){
+        res.redirect('/users/login');
+    }else {
+        res.render('maps', {title: 'Express'});
+    }
 });
 
 /* GET dashboard. */
