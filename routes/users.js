@@ -44,7 +44,8 @@ router.post('/signup', function(req, res){
 router.get('/login', function(req, res, next) {
     var islogged = req.session.islogged;
     if(islogged == null){
-        res.render('login', {title: 'Express'});
+        var loginstatus = req.query.valid;
+        res.render('login', {title: 'Express', valid: loginstatus});
     }else {
         res.redirect('/dashboard');
     }
@@ -62,8 +63,8 @@ router.post('/login', function(req, res){
             dataRes.status = status;
             console.log(dataRes);
             req.body = false;
-            res.status(400).send(dataRes);
-            //res.redirect('?valid=error');
+            //res.status(400).send(dataRes);
+            res.redirect('?valid=error');
         }	else{
             if (req.body['remember-me'] == 'true'){
                 res.cookie('user', o.user, { maxAge: 900000 });
@@ -76,18 +77,19 @@ router.post('/login', function(req, res){
             dataRes.status = status;
             dataRes.data = o;
             console.log(dataRes);
-            //    res.status(200).send(dataRes);
-            console.log(dataRes);
-            /* add to session */
-            req.session.islogged = true;
-            req.session.username = o.user;
-            req.session.name = o.name;
-            req.session.email = o.email;
-            req.session.id = o._id;
-            req.session.isverified = o.isVerified;
-            var random = Math.random().toString();
-            res.status(400).send(dataRes);
-            // res.redirect('../dashboard?redirect='+md5(moment().format('MMMM Do YYYY, h:mm:ss a')+random));
+            if(o.role == '1') {
+                /* add to session */
+                req.session.islogged = true;
+                req.session.username = o.user;
+                req.session.name = o.name;
+                req.session.email = o.email;
+                req.session.id = o._id;
+                req.session.isverified = o.isVerified;
+                //    res.status(400).send(dataRes);
+                res.redirect('/dashboard?redirect=welcome');
+            }else {
+                res.redirect('?valid=error');
+            }
         }
     });
 });
