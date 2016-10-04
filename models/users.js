@@ -55,6 +55,24 @@ login = function(user, pass, callback)
     });
 }
 
+//---- get user role 3
+getDriver = function(user, callback)
+{
+    users.findOne({user: user}, function(e, o) {
+        if (o == null){
+            callback('Username tidak terdaftar');
+        }	else{
+            users.find({role: '2'}).toArray(function(e, o) {
+                if(o == null){
+                    callback('nullssss');
+                }else {
+                    callback(null, o);
+                }
+            });
+        }
+    });
+}
+
 /* update */
 update = function(user, lat, lon, location, callback)
 {
@@ -99,5 +117,6 @@ var saltAndHash = function(pass, callback)
 module.exports = {
     addNewAccount: addNewAccount,
     login: login,
-    update: update
+    update: update,
+    getDriver: getDriver
 };
