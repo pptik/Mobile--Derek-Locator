@@ -8,7 +8,7 @@ var Server 		= require('mongodb').Server;
 //---- mongodb var
 
 /* Todo: ubah dengan db live*/
-var dbName = process.env.DB_NAME || 'semut_demo';
+var dbName = process.env.DB_NAME || 'mobildereklocator';
 var dbHost = process.env.DB_HOST || 'MacBookPro.local'
 var dbPort = process.env.DB_PORT || 27017;
 
