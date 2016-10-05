@@ -28,7 +28,7 @@ map = {
 
         var map = new google.maps.Map(document.getElementById('map'), {
             zoom: 10,
-            center: new google.maps.LatLng(-33.92, 151.25),
+            center: new google.maps.LatLng(-6.881694, 107.615820),
             mapTypeId: google.maps.MapTypeId.ROADMAP
         });
 

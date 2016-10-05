@@ -26,11 +26,17 @@ router.get('/map', function(req, res, next) {
     }else {
         var dataRes = {};
         getDriver(req.session.username, function(result) {
-            // return value is here
-         //   console.log(result);
             dataRes = result;
-            console.log(dataRes);
-            res.render('maps', {title: 'Express', data: dataRes});
+            //console.log(dataRes);
+            var arr = [];
+            arr = dataRes.data;
+            console.log(arr.length);
+            var arrLocs = [];
+            for (var i = 0; i < arr.length; i++){
+                arrLocs[i] = [arr[i].location, arr[i].latitude, arr[i].longitude];
+            }
+            console.log(arrLocs);
+            res.render('maps', {title: 'Express', data: arrLocs});
         });
 
     }
@@ -51,7 +57,6 @@ function getDriver(username, callback) {
             status.success = false;
             status.msg = e;
             dataRes.status = status;
-        //    console.log(dataRes);
             req.body = false;
             callback(dataRes);
         }	else{
@@ -60,7 +65,6 @@ function getDriver(username, callback) {
             status.msg = 'Data ditemukan';
             dataRes.status = status;
             dataRes.data = o;
-        //    console.log(dataRes);
             callback(dataRes);
         }
     });
