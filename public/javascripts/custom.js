@@ -2,32 +2,10 @@ map = {
 
     initMap: function(data) {
 
-    /*    var location = new google.maps.LatLng(lat, lon);
-
-        var mapCanvas = document.getElementById('map');
-        var mapOptions = {
-            center: location,
-            zoom: 16,
-            panControl: false,
-            scrollwheel: false,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        }
-        var map = new google.maps.Map(mapCanvas, mapOptions);
-
-        var markerImage = '/images/marker.png';
-
-        var marker = new google.maps.Marker({
-            position: location,
-            map: map,
-            icon: markerImage
-        });
-        */
-
-      //  var msg = data;
         var locations = data;
 
         var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 10,
+            zoom: 20,
             center: new google.maps.LatLng(-6.881694, 107.615820),
             mapTypeId: google.maps.MapTypeId.ROADMAP
         });
@@ -45,12 +23,33 @@ map = {
 
             google.maps.event.addListener(marker, 'click', (function(marker, i) {
                 return function() {
-                    infowindow.setContent(locations[i][0]);
+                    var contentString = '<div class="info-window">' +
+                        '<h3><b> Nomor Unit : '+locations[i][5]+'</b></h3>' +
+                        '<div class="info-content">' +
+                        '<p><b>Nama driver :</b> '+locations[i][4]+'<br />' +
+                        '<b>Nomor Telepon :</b> '+locations[i][6]+'<br />' +
+                        '<b>Lokasi Sekarang :</b> '+locations[i][0]+'<br />' +
+                        '<b>Terakhir update lokasi : </b>'+locations[i][7]+'<br />' +
+                        '</p>' +
+                        '</div>' +
+                        '</div>';
+                    infowindow.setContent(contentString);
                     infowindow.open(map, marker);
                 }
             })(marker, i));
         }
 
+        //--- fit bounding
+        var latlng = [];
+        for (var x = 0; x < locations.length; x++){
+            latlng[x] = new google.maps.LatLng(locations[x][1], locations[x][2]);
+        }
+
+        var latlngbounds = new google.maps.LatLngBounds();
+        for (var i = 0; i < latlng.length; i++) {
+            latlngbounds.extend(latlng[i]);
+        }
+        map.fitBounds(latlngbounds);
         
         var contentString = '<div class="info-window">' +
                 '<h3>shit</h3>' +

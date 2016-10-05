@@ -76,7 +76,8 @@ getDriver = function(user, callback)
 /* update */
 update = function(user, lat, lon, location, callback)
 {
-    users.updateOne({user:user},{ $set: { "latitude": lat, "longitude": lon, "location": location } },
+    var date = moment().format('MMMM Do YYYY, h:mm:ss a');
+    users.updateOne({user:user},{ $set: { "latitude": lat, "longitude": lon, "location": location, "date": date } },
         function(e, o) {
             console.log(o);
             //callback();

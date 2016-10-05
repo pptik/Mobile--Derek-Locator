@@ -33,7 +33,9 @@ router.get('/map', function(req, res, next) {
             console.log(arr.length);
             var arrLocs = [];
             for (var i = 0; i < arr.length; i++){
-                arrLocs[i] = [arr[i].location, arr[i].latitude, arr[i].longitude];
+                // [0] lokasi, [1] latitude, [2] longitude, [3] num, [4] nama, [5] id unit, [6] no tlp, [7] date update
+                arrLocs[i] = [arr[i].location, arr[i].latitude,
+                    arr[i].longitude, i+1, arr[i].name, arr[i].id_unit, arr[i].nomor_telepon, arr[i].date];
             }
             console.log(arrLocs);
             res.render('maps', {title: 'Express', data: arrLocs});
