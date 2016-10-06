@@ -1,0 +1,251 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Mobildereklocator",
+		"_postman_id": "88f1e396-affa-8953-5b15-693860a49133",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "SIGNUP",
+			"request": {
+				"url": "http://localhost:3000/users/signup",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "superadmin",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "email",
+							"value": "superadmin@superadmin",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "user",
+							"value": "superadmin",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "pass",
+							"value": "superadmin",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "role",
+							"value": "1",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "SIGNUP driver",
+			"request": {
+				"url": "http://localhost:3000/api/signup",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Driver 5",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "email",
+							"value": "driver5@gmail.com",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "user",
+							"value": "driver5",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "pass",
+							"value": "driver5",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "role",
+							"value": "2",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "id_unit",
+							"value": "005",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "nomor_telepon",
+							"value": "081311415274",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "SIGnin",
+			"request": {
+				"url": "http://167.205.7.226:3000/api/login",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "user",
+							"value": "hendra",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "pass",
+							"value": "betanamex",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "postt",
+			"request": {
+				"url": "http://167.205.7.226:3000/api/postreport",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "user",
+							"value": "hynracom",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "location",
+							"value": "jalan yang benar, sukomulyo",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "latitude",
+							"value": "2322323012",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "longitude",
+							"value": "034442323ds",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "nomor_telepon",
+							"value": "932e2323",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"url": "http://localhost:3000/api/updateuser",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "user",
+							"value": "testdriver",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "latitude",
+							"value": "12345",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "longitude",
+							"value": "12132",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "location",
+							"value": "2131231",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "get driver",
+			"request": {
+				"url": "http://localhost:3000/users/getdriver",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "user",
+							"value": "superadmin",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
