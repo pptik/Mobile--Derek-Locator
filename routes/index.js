@@ -27,7 +27,7 @@ router.get('/map', function(req, res, next) {
         var dataRes = {};
         getDriver(req.session.username, function(result) {
             dataRes = result;
-            //console.log(dataRes);
+            console.log("data res: "+dataRes);
             var arr = [];
             arr = dataRes.data;
             console.log(arr.length);
@@ -37,8 +37,8 @@ router.get('/map', function(req, res, next) {
                 arrLocs[i] = [arr[i].location, arr[i].latitude,
                     arr[i].longitude, i+1, arr[i].name, arr[i].id_unit, arr[i].nomor_telepon, arr[i].date];
             }
-            console.log(arrLocs);
-            res.render('maps', {title: 'Express', data: arrLocs});
+            console.log("map nih: "+arrLocs);
+            res.render('maps', {title: 'Express', data: arrLocs,dataDriver: dataRes});
         });
 
     }

@@ -118,10 +118,10 @@ router.post('/postreport', function(req, res){
 
 router.post('/updateuser', function(req, res){
     users.update(req.body['user'], req.body['latitude'],req.body['longitude'], req.body['location']
-    , function(e, o){
+    , function(e, o){//error dan oke
         var dataRes = {};
         var status = {};
-        if (e){
+        if (e){//error
             status.code = 400;
             status.success = false;
             status.msg = e;
