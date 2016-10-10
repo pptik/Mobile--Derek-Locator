@@ -237,7 +237,12 @@
 
 
         for (var i = 0; i < data.length; i++) {
-            $("#driver-data").append("<span>" + data[i] + "</span><hr/>");
+            $("#driver-data").append("<span>" + data[i] + "</span>" +
+                    "<br/><button id='driver-ke-"+parseInt(i+1)+"' type='button' class='btn btn-info'>Info</button><hr/>");
+            $("#driver-ke-"+parseInt(i+1)).click(function () {
+              alert(0);
+
+            });
         }
 
 
