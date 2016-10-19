@@ -1,7 +1,8 @@
+
+
 map = {
 
     initMap: function(data) {
-
         var locations = data;
 
         var map = new google.maps.Map(document.getElementById('map'), {
@@ -14,6 +15,7 @@ map = {
 
         var marker, i;
         var markerImage = '/images/marker.png';
+
         for (i = 0; i < locations.length; i++) {
             marker = new google.maps.Marker({
                 position: new google.maps.LatLng(locations[i][1], locations[i][2]),
@@ -35,8 +37,7 @@ map = {
                         '</div>';
                     infowindow.setContent(contentString);
                     infowindow.open(map, marker);
-                    alert('asoy');
-
+                    //alert('asoy');
                 }
             })(marker, i));
         }
@@ -78,4 +79,9 @@ map = {
 
         //google.maps.event.addDomListener(window, 'load', initMap);
     },
+    actionMap: function (data) {
+
+        //aksi ketika button info driver di klik
+
+    }
 }

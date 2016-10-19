@@ -38,9 +38,7 @@ router.post('/signup', function(req, res){
     });
 });
 
-/* Login get */
-
-/* GET home page. */
+/* Login*/
 router.get('/login', function(req, res, next) {
     var islogged = req.session.islogged;
     if(islogged == null){
@@ -51,12 +49,18 @@ router.get('/login', function(req, res, next) {
     }
 });
 
+/* Logout*/
+router.get('/logout', function(req, res, next) {
+    req.session.destroy();
+    res.redirect('/');
+});
+
 router.post('/login', function(req, res){
     users.login(req.body['user'], req.body['pass'], function(e, o){
         console.log(req.body['user'] +', '+req.body['pass']);
         var dataRes = {};
         var status = {};
-        if (!o){
+        if (!o){//login tidak berhasil
             status.code = 400;
             status.success = false;
             status.msg = e;
@@ -64,8 +68,9 @@ router.post('/login', function(req, res){
             console.log(dataRes);
             req.body = false;
             //res.status(400).send(dataRes);
+            req.flash("info", "Username atau Password anda salah.");
             res.redirect('?valid=error');
-        }	else{
+        }	else{//login berhasil
             if (req.body['remember-me'] == 'true'){
                 res.cookie('user', o.user, { maxAge: 900000 });
                 res.cookie('pass', o.pass, { maxAge: 900000 });
@@ -86,7 +91,7 @@ router.post('/login', function(req, res){
                 req.session.id = o._id;
                 req.session.isverified = o.isVerified;
                 //    res.status(400).send(dataRes);
-                res.redirect('/dashboard?redirect=welcome');
+                res.redirect('/map');
             }else {
                 res.redirect('?valid=error');
             }

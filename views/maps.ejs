@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
-    <link rel="icon" type="image/png" href="/assets/img/favicon.ico">
+    <link rel="icon" type="image/png" href="/assets/img/shortcut-icon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 
-    <title>Light Bootstrap Dashboard by Creative Tim</title>
+    <title>Map | Mobil Derek Administrator</title>
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
     <meta name="viewport" content="width=device-width"/>
@@ -30,35 +30,46 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link href="/assets/css/pe-icon-7-stroke.css" rel="stylesheet"/>
 
+    <style>
+        .gray-color{
+            color: #6C7A89;
+        }
+        .small-font{
+            font-size: small;
+        }
+        .azure{
+            color:#3CBFD8;
+        }
+    </style>
 </head>
 <body>
 
 <div class="wrapper">
 
 
-    <div class="sidebar" data-color="orange" data-image="assets/img/sidebar-5.jpg">
+    <div class="sidebar" data-color="azure" data-image="assets/img/sidebar-6.jpg">
 
         <!--   you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple" -->
 
 
         <div class="sidebar-wrapper">
             <div class="logo">
-                <a href="http://www.creative-tim.com" class="simple-text">
-                    Derex Mobile
+                <a href="/" class="simple-text">
+                    Mobil Derek Administrator
                 </a>
             </div>
 
             <ul class="nav">
-                <li>
+                <!--<li>
                     <a href="/dashboard">
                         <i class="pe-7s-graph"></i>
                         <p>Dashboard</p>
                     </a>
-                </li>
+                </li>-->
                 <li class="active">
-                    <a href="/map">
+                    <a href="/map" class="azure">
                         <i class="pe-7s-map-marker"></i>
-                        <p>Maps</p>
+                        <p>Map</p>
                     </a>
                 </li>
             </ul>
@@ -70,45 +81,13 @@
         <nav class="navbar navbar-default navbar-fixed">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse"
-                            data-target="#navigation-example-2">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">Maps</a>
+                    <a class="navbar-brand" href="/map" style="color:#3CBFD8;">Map</a>
                 </div>
                 <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-left">
-                        <li>
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-dashboard"></i>
-                            </a>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-globe"></i>
-                                <b class="caret"></b>
-                                <span class="notification">5</span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Notification 1</a></li>
-                                <li><a href="#">Notification 2</a></li>
-                                <li><a href="#">Notification 3</a></li>
-                                <li><a href="#">Notification 4</a></li>
-                                <li><a href="#">Another notification</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="">
-                                <i class="fa fa-search"></i>
-                            </a>
-                        </li>
-                    </ul>
+
 
                     <ul class="nav navbar-nav navbar-right">
-                        <li>
+                        <!--<li>
                             <a href="">
                                 Account
                             </a>
@@ -127,9 +106,9 @@
                                 <li class="divider"></li>
                                 <li><a href="#">Separated link</a></li>
                             </ul>
-                        </li>
+                        </li>-->
                         <li>
-                            <a href="#">
+                            <a href="/users/logout">
                                 Log out
                             </a>
                         </li>
@@ -152,17 +131,11 @@
                             <div class="content">
                                 <div id="driver-data"></div>
 
-                                <div class="footer">
-                                    <div class="legend">
-                                        <i class="fa fa-circle text-info"></i> Open
-                                        <i class="fa fa-circle text-danger"></i> Bounce
-                                        <i class="fa fa-circle text-warning"></i> Unsubscribe
-                                    </div>
-                                    <hr>
+                                <!--<div class="footer">
                                     <div class="stats">
-                                        <i class="fa fa-clock-o"></i> Campaign sent 2 days ago
+                                        <i class="fa fa-history"></i> Updated 3 minutes ago
                                     </div>
-                                </div>
+                                </div>-->
                             </div>
                         </div>
                     </div>
@@ -174,18 +147,12 @@
                                 <p class="category">Panic Button yang dikirimkan oleh pengguna</p>
                             </div>
                             <div class="content">
-                                <div id="chartHours" class="ct-chart"></div>
-                                <div class="footer">
-                                    <div class="legend">
-                                        <i class="fa fa-circle text-info"></i> Open
-                                        <i class="fa fa-circle text-danger"></i> Click
-                                        <i class="fa fa-circle text-warning"></i> Click Second Time
-                                    </div>
-                                    <hr>
+                                <div id="report-data"></div>
+                                <!--<div class="footer">
                                     <div class="stats">
                                         <i class="fa fa-history"></i> Updated 3 minutes ago
                                     </div>
-                                </div>
+                                </div>-->
                             </div>
                         </div>
                     </div>
@@ -220,30 +187,229 @@
 <!--  Notifications Plugin    -->
 <script src="/assets/js/bootstrap-notify.js"></script>
 
+
+<!--  Smooth Scroll    -->
+<script src="/assets/js/smooth-scroll.js"></script>
+
 <!--  Google Maps Plugin    -->
 <script src="https://maps.googleapis.com/maps/api/js?v=3&amp;sensor=false&amp;key=AIzaSyBu5nZKbeK-WHQ70oqOWo-_4VmwOwKP9YQ"></script>
-<script src="/javascripts/custom.js"></script>
+<!--<script src="/javascripts/custom.js"></script>-->
 <script>
+    /*function detailDriver(i) {
+        google.maps.event.trigger(markers[i], 'click');
+        //alert(i);
+    }*/
+    smoothScroll.init({
+        speed: 100
+    });
+
     $().ready(function () {
 
+        //Insisial penampung drivers
         var data = [];
-        data = '<%- JSON.stringify(data) %>';
+        data = '<%- JSON.stringify(dataDrivers) %>';
         data = JSON.parse(data);
 
-        console.log(data);
+        //Insisial penampung reports
+        var dataReports = [];
+        dataReports = '<%- JSON.stringify(dataReports) %>';
+        dataReports= JSON.parse(dataReports);
 
-        map.initMap(data);
-        map.startMap();
+        console.log("Data driver awal: "+data);
+        console.log("Data report awal: "+dataReports);
+        /*map.initMap(data);
+        map.startMap();*/
 
+        //Pengaturan map
+        var locations = data;
+        var locationsReports = dataReports;
 
-        for (var i = 0; i < data.length; i++) {
-            $("#driver-data").append("<span>" + data[i] + "</span>" +
-                    "<br/><button id='driver-ke-"+parseInt(i+1)+"' type='button' class='btn btn-info'>Info</button><hr/>");
-            $("#driver-ke-"+parseInt(i+1)).click(function () {
-              alert(0);
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 20,
+            center: new google.maps.LatLng(-6.881694, 107.615820),
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
 
+        //pengaturan awal marker driver
+        var infowindow = new google.maps.InfoWindow();
+
+        //var marker, i;
+        var i;
+        var marker = [];
+
+        var markerImage = 'images/driver-marker.png';
+
+        for (i = 0; i < locations.length; i++) {
+
+            var displayDriver = String(data[i]).split(',');
+
+            $("#driver-data").append("<a id='driver-ke-"+i+"' data-scroll href='#map' style='color:#83C377;'>" + displayDriver[6] + "</a>" +
+                    "<br/><hr/>");
+
+            /*$('#driver-ke-'+i+'').click(function () {
+                alert(i);
+            });*/
+
+            $('#driver-ke-'+i+'').click(function(event) {
+
+                var get_id = event.target.id.split('-');
+                //alert(get_id[2])
+                google.maps.event.trigger(marker[get_id[2]], 'click');
             });
+
+
+            marker[i] = new google.maps.Marker({
+                position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                map: map,
+                icon: markerImage,
+                iterasi:i
+            });
+
+            (function(marker,i){
+                google.maps.event.addListener(marker, 'click', function(){
+                    //alert(toado[i][2]);
+                    var contentString = '<div class="info-window">' +
+                            '<h3 class="gray-color" style="color:#83C377;"><b> Nomor Unit : '+locations[i][5]+'</b></h3>' +
+                            '<div class="info-content gray-color small-font">' +
+                            '<p><b style="color:#83C377;">Nama driver :</b> '+locations[i][4]+'<br />' +
+                            '<b style="color:#83C377;">Nomor Telepon :</b> '+locations[i][6]+'<br />' +
+                            '<b style="color:#83C377;">Lokasi Sekarang :</b> '+locations[i][0]+'<br />' +
+                            '<b style="color:#83C377;">Terakhir update lokasi : </b>'+locations[i][7]+'<br />' +
+                            '</p>' +
+                            '</div>' +
+                            '</div>';
+                    infowindow.setContent(contentString);
+                    infowindow.open(map,marker);
+                });
+            }(marker[i],i));
+
         }
+
+        //--- fit bounding
+        var latlng = [];
+        for (var x = 0; x < locations.length; x++){
+            latlng[x] = new google.maps.LatLng(locations[x][1], locations[x][2]);
+        }
+
+        var latlngbounds = new google.maps.LatLngBounds();
+        for (var i = 0; i < latlng.length; i++) {
+            latlngbounds.extend(latlng[i]);
+        }
+        map.fitBounds(latlngbounds);
+
+        var contentString = '<div class="info-window">' +
+                '<h3>shit</h3>' +
+                '<div class="info-content">' +
+                '<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>' +
+                '</div>' +
+                '</div>';
+
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString,
+            maxWidth: 400
+        });
+
+
+
+
+
+        var styles = [{"featureType": "landscape", "stylers": [{"saturation": -100}, {"lightness": 65}, {"visibility": "on"}]}, {"featureType": "poi", "stylers": [{"saturation": -100}, {"lightness": 51}, {"visibility": "simplified"}]}, {"featureType": "road.highway", "stylers": [{"saturation": -100}, {"visibility": "simplified"}]}, {"featureType": "road.arterial", "stylers": [{"saturation": -100}, {"lightness": 30}, {"visibility": "on"}]}, {"featureType": "road.local", "stylers": [{"saturation": -100}, {"lightness": 40}, {"visibility": "on"}]}, {"featureType": "transit", "stylers": [{"saturation": -100}, {"visibility": "simplified"}]}, {"featureType": "administrative.province", "stylers": [{"visibility": "off"}]}, {"featureType": "water", "elementType": "labels", "stylers": [{"visibility": "on"}, {"lightness": -25}, {"saturation": -100}]}, {"featureType": "water", "elementType": "geometry", "stylers": [{"hue": "#ffff00"}, {"lightness": -25}, {"saturation": -97}]}];
+
+        map.set('styles', styles);
+        //pengaturan akhir marker driver
+
+        //pengaturan awal marker report
+        var infowindowReports = new google.maps.InfoWindow();//awalnya infowindow
+
+        //var marker, i;
+        var i;
+        var markerReports = [];//awalnya marker
+
+        var markerImageReports = 'images/report-marker.png';//awalnya markerImage
+
+        for (i = 0; i < locationsReports.length; i++) {//awalnya locations
+
+            var displayReports = String(dataReports[i]).split(',');//awalnya data Driver
+            console.log("Data display report "+displayReports);
+            $("#report-data").append("<a id='report-ke-"+i+"' data-scroll href='#map' style='color:#e12f4a;'>" + displayReports[5] + "</a>" +
+                    "<br/><hr/>");
+
+            /*$('#driver-ke-'+i+'').click(function () {
+             alert(i);
+             });*/
+
+            $('#report-ke-'+i+'').click(function(event) {
+
+                var get_id = event.target.id.split('-');
+                //alert(get_id[2])
+                google.maps.event.trigger(markerReports[get_id[2]], 'click');
+            });
+
+
+            markerReports[i] = new google.maps.Marker({
+                position: new google.maps.LatLng(locationsReports[i][1], locationsReports[i][2]),
+                map: map,
+                icon: markerImageReports,
+                iterasi:i
+            });
+
+            (function(marker,i){
+                google.maps.event.addListener(marker, 'click', function(){
+                    //alert(toado[i][2]);
+                    var contentString = '<div class="info-window">' +
+                            '<h3 class="gray-color" style="color:#e12f4a;"><b> Nomor Unit : '+locationsReports[i][4]+'</b></h3>' +
+                            '<div class="info-content gray-color small-font">' +
+                            '<p><b style="color:#e12f4a;">Nama driver :</b> '+locationsReports[i][4]+'<br />' +
+                            '<b style="color:#e12f4a;">Nomor Telepon :</b> '+locationsReports[i][6]+'<br />' +
+                            '<b style="color:#e12f4a;">Lokasi Sekarang :</b> '+locationsReports[i][0]+'<br />' +
+                            '<b style="color:#e12f4a;">Terakhir update lokasi : </b>'+locationsReports[i][7]+'<br />' +
+                            '</p>' +
+                            '</div>' +
+                            '</div>';
+                    infowindowReports.setContent(contentString);
+                    infowindowReports.open(map,marker);
+                });
+            }(markerReports[i],i));
+
+        }
+
+        //--- fit bounding
+        var latlng = [];
+        for (var x = 0; x < locationsReports.length; x++){
+            latlng[x] = new google.maps.LatLng(locations[x][1], locations[x][2]);
+        }
+
+        var latlngbounds = new google.maps.LatLngBounds();
+        for (var i = 0; i < latlng.length; i++) {
+            latlngbounds.extend(latlng[i]);
+        }
+        map.fitBounds(latlngbounds);
+
+        var contentString = '<div class="info-window">' +
+                '<h3>shit</h3>' +
+                '<div class="info-content">' +
+                '<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>' +
+                '</div>' +
+                '</div>';
+
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString,
+            maxWidth: 400
+        });
+
+
+
+
+
+        var styles = [{"featureType": "landscape", "stylers": [{"saturation": -100}, {"lightness": 65}, {"visibility": "on"}]}, {"featureType": "poi", "stylers": [{"saturation": -100}, {"lightness": 51}, {"visibility": "simplified"}]}, {"featureType": "road.highway", "stylers": [{"saturation": -100}, {"visibility": "simplified"}]}, {"featureType": "road.arterial", "stylers": [{"saturation": -100}, {"lightness": 30}, {"visibility": "on"}]}, {"featureType": "road.local", "stylers": [{"saturation": -100}, {"lightness": 40}, {"visibility": "on"}]}, {"featureType": "transit", "stylers": [{"saturation": -100}, {"visibility": "simplified"}]}, {"featureType": "administrative.province", "stylers": [{"visibility": "off"}]}, {"featureType": "water", "elementType": "labels", "stylers": [{"visibility": "on"}, {"lightness": -25}, {"saturation": -100}]}, {"featureType": "water", "elementType": "geometry", "stylers": [{"hue": "#ffff00"}, {"lightness": -25}, {"saturation": -97}]}];
+
+        map.set('styles', styles);
+        //pengaturan akhir marker report
+
+        //Akhir pengaturan map
+
+
+
 
 
     });
